@@ -100,6 +100,27 @@ footer .social-links img {
     width: 24px;
     height: 24px;
 }
+/*Admin*/
+.admin-link {
+    float: right;
+    margin-right: 20px;
+}
+
+.admin-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.admin-btn:hover {
+    background-color: #555;
+}
 /* Адаптивний дизайн */
 @media (max-width: 768px) {
     body {

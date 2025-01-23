@@ -1,0 +1,16 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея</title>
+</head>
+<body>
+    <div class="gallery-grid">
+        {% for image in images %}
+            <img src="{{ image.image.url }}" alt="{{ image.title }}" class="gallery-img">
+        {% endfor %}
+    </div>
+</body>
+</html>

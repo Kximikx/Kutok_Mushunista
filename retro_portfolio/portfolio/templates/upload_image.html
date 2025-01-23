@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завантаження фото</title>
+</head>
+<body>
+    <h1>Завантажити фото</h1>
+    {% if user.is_authenticated and user.is_superuser %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Завантажити</button>
+        </form>
+    {% else %}
+        <p>У вас немає доступу до цієї сторінки.</p>
+    {% endif %}
+</body>
+</html>
