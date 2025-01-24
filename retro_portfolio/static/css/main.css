@@ -160,20 +160,20 @@ footer .social-links img {
 /* Основний стиль для секції */
 .polaroid-section {
     background-color: #c2c2c2; /* Світло-сірий фон */
-    padding: 50px 20px;
+    padding: 20px 10px;
     text-align: center;
 }
 
 .polaroid-section h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 2rem;
+    margin-bottom: 15px;
     color: #131313;
 }
 
 .polaroid-section p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #666;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 /* Грід для полароїдів */
@@ -181,38 +181,37 @@ footer .social-links img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Гнучка сітка */
     gap: 20px; /* Відступи між елементами */
-    justify-items: center; /* Центрування елементів */
+    justify-items: center;
 }
 
-/* Стиль полароїдів */
 .polaroid {
     background: white;
-    padding: 15px;
-    border: 2px solid #ddd;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .polaroid:hover {
-    transform: scale(1.05); /* Збільшення при наведенні */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Сильніша тінь */
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .polaroid img {
-    max-width: 356px;
-    height: auto;
+    width: 100%; /* Повна ширина контейнера */
+    height: auto; /* Зберігаємо пропорції */
+    object-fit: cover; /* Заповнює блок, обрізаючи зайве */
     border: 1px solid #ddd;
     margin-bottom: 10px;
-    transition: transform 0.3s ease-in-out;
 }
 
-/* Підпис під фото */
 .polaroid p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #555;
     margin: 0;
 }
+
 
 /* Анімація збільшення фото */
 .gallery-img {
@@ -271,4 +270,25 @@ footer .social-links img {
         height: 20px;
     }
 }
+@media (min-width: 1024px) {
+    .polaroid-grid {
+        grid-template-columns: repeat(4, 1fr); /* Чотири елементи в ряд */
+        gap: 20px; /* Відступ між елементами */
+    }
+}
 
+@media (max-width: 1024px) {
+    .polaroid-grid {
+        grid-template-columns: repeat(2, 1fr); /* Два елементи в ряд */
+    }
+}
+
+@media (max-width: 768px) {
+    .polaroid-grid {
+        grid-template-columns: 1fr; /* Один елемент у ряд */
+    }
+
+    .polaroid img {
+        height: auto;
+    }
+}
