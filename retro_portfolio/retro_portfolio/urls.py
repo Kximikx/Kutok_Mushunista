@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('portfolio.urls')),  # Підключення нашого додатку
+    path('admin/', admin.site.urls),  # Адмін-панель
+    path('', include('portfolio.urls')),  # Підключення маршрутів додатку portfolio
 ]
+

@@ -1,24 +1,17 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import login_required
 from .models import GalleryImage
 from .forms import GalleryImageForm
 
 def home(request):
+    """Вигляд для головної сторінки."""
     return render(request, 'index.html')
 
-
 def gallery(request):
+    """Вигляд для сторінки галереї."""
     images = GalleryImage.objects.all()  # Всі фото з бази даних
     return render(request, 'gallery.html', {'images': images})
-def upload_image(request):
-    if request.method == 'POST':
-        form = GalleryImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('gallery')  # Перенаправлення до галереї
-    else:
-        form = GalleryImageForm()
-    return render(request, 'upload_image.html', {'form': form})
+
 # Декоратор для перевірки доступу (тільки суперкористувач)
 def superuser_required(function):
     def wrapper(request, *args, **kwargs):
@@ -29,6 +22,7 @@ def superuser_required(function):
 
 @superuser_required
 def upload_image(request):
+    """Вигляд для завантаження фото (доступ лише суперкористувачам)."""
     if request.method == 'POST':
         form = GalleryImageForm(request.POST, request.FILES)
         if form.is_valid():

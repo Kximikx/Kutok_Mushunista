@@ -5,12 +5,13 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('', views.gallery, name='gallery'),  # Галерея
+    path('', views.home, name='index'),  # Головна сторінка
+    path('gallery/', views.gallery, name='gallery'),  # Галерея
     path('upload/', views.upload_image, name='upload_image'),  # Завантаження фото
-    path('upload/', views.upload_image, name='upload_image'),
-    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),  # Логін
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # Логаут
 ]
-if settings.DEBUG:  # Обробка тільки в режимі розробки
+
+# Додавання медіафайлів у режимі DEBUG
+if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

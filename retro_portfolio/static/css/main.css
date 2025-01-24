@@ -13,10 +13,13 @@ header {
     color: #fff;
     padding: 1rem 0;
     text-align: center;
+    
 }
 
 header .logo {
     max-width: 150px;
+    height: auto;     /* Автоматична висота для збереження пропорцій */
+    margin-bottom: 20px;
 }
 
 /* Секції */
@@ -121,6 +124,105 @@ footer .social-links img {
 .admin-btn:hover {
     background-color: #555;
 }
+.btn {
+    display: inline-block;
+    padding: 12px 24px; /* Внутрішні відступи */
+    font-size: 16px; /* Розмір шрифту */
+    font-weight: bold; /* Жирний текст */
+    color: white; /* Колір тексту */
+    background-color: #007bff; /* Синій фон */
+    text-decoration: none; /* Видалення підкреслення */
+    border-radius: 8px; /* Згладжені краї */
+    transition: background-color 0.3s, transform 0.2s; /* Плавний перехід для ховер-ефекту */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Легка тінь */
+}
+
+/* Ховер-ефект */
+.btn:hover {
+    background-color: #0056b3; /* Трохи темніший синій */
+    transform: scale(1.05); /* Збільшення при наведенні */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Більша тінь */
+}
+
+/* Фокус для доступності */
+.btn:focus {
+    outline: 2px dashed #0056b3; /* Контур для фокусу */
+    outline-offset: 2px;
+}
+
+/* Активна кнопка */
+.btn:active {
+    background-color: #003f7f; /* Ще темніший синій при натисканні */
+    transform: scale(0.98); /* Легке зменшення */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Зменшена тінь */
+}
+/*Gallery*/
+/* Основний стиль для секції */
+.polaroid-section {
+    background-color: #c2c2c2; /* Світло-сірий фон */
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.polaroid-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #131313;
+}
+
+.polaroid-section p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* Грід для полароїдів */
+.polaroid-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Гнучка сітка */
+    gap: 20px; /* Відступи між елементами */
+    justify-items: center; /* Центрування елементів */
+}
+
+/* Стиль полароїдів */
+.polaroid {
+    background: white;
+    padding: 15px;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.polaroid:hover {
+    transform: scale(1.05); /* Збільшення при наведенні */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Сильніша тінь */
+}
+
+.polaroid img {
+    max-width: 356px;
+    height: auto;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Підпис під фото */
+.polaroid p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+}
+
+/* Анімація збільшення фото */
+.gallery-img {
+    cursor: pointer;
+}
+
+.gallery-img:active {
+    transform: scale(1.2); /* Збільшення при кліку */
+}
+
 /* Адаптивний дизайн */
 @media (max-width: 768px) {
     body {

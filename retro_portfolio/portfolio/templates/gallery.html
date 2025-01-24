@@ -3,14 +3,33 @@
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Галерея</title>
+    <link rel="shortcut icon" href="{% static 'img/Logo.jpg' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-    <div class="gallery-grid">
-        {% for image in images %}
-            <img src="{{ image.image.url }}" alt="{{ image.title }}" class="gallery-img">
-        {% endfor %}
-    </div>
+    <header>
+        <h1>Галерея</h1>
+        <p>Сторінка працює коректно.</p>
+        <a href="{% url 'index' %}" class="btn">Повернутися назад</a>
+    </header>
+    <section class="polaroid-section">
+        <div class="polaroid-grid">
+            {% for image in images %}
+            <div class="polaroid">
+                <img src="{{ image.image.url }}" alt="{{ image.title }}" class="gallery-img">
+                <p>{{ image.title }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2025 Ретро Фотограф. Усі права захищені.</p>
+        <div class="social-links">
+            <a href="https://t.me/arsenalfactorylovers"><img src="{% static 'img/Mask group.png'%}" alt="Telegram"></a>
+            <a href="https://www.instagram.com/curly_warrior_of_sunlight?igsh=MWF3Mzd6d3k4dTc4cA%3D%3D&utm_source=qr"><img src="{% static 'img/Mask group 3.png' %}" alt="Instagram"></a>
+            <a href="https://www.lomography.com/homes/kievlover"><img src="{% static 'img/Mask group 2.png' %}" alt="lomography"></a>
+        </div>
+    </footer>
 </body>
 </html>
